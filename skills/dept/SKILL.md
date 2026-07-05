@@ -66,9 +66,14 @@ disable-model-invocation: true
 1. Спроси домен роли одной строкой.
 2. Создай `departments/<slug>/role.md` из `${CLAUDE_PLUGIN_ROOT}/template/departments/_role.md.tmpl`
    (покажи подходящий пример из `examples/`, если есть).
-3. Лейбл `dept:<slug>` в hub-репо (в репо проектов — добавит project-register/route
+3. **Одноимённый hat-скилл**: `skills/<slug>/SKILL.md` из
+   `${CLAUDE_PLUGIN_ROOT}/template/departments/_dept-hat.md.tmpl` (подставь `<slug>`).
+   Теперь `/<slug>` сразу надевает эту роль.
+4. Лейбл `dept:<slug>` в hub-репо (в репо проектов — добавит project-register/route
    по мере надобности).
-4. Коммит + push штаба. Если запущен в репо проекта — предложи сразу `/dept <slug>`.
+5. Коммит + push штаба. **Скажи пользователю**: чтобы новый скилл `/<slug>` появился —
+   обновить плагин (`claude plugin update <hub>@<hub>`) и начать новую сессию.
+6. Если запущен в репо проекта — предложи сразу `/dept <slug>`.
 
 ## /dept (без аргументов)
 

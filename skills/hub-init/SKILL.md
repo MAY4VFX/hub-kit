@@ -60,6 +60,8 @@ ls ~/Github ~/Documents/GitHub 2>/dev/null      # кандидаты в коре
    - `departments/README.md` ← стандарт отдела (копия из template/departments/README.md);
    - `departments/<slug>/role.md` ← `_role.md.tmpl` на каждую роль (структура — по
      этому стандарту);
+   - `skills/<slug>/SKILL.md` ← `_dept-hat.md.tmpl` на каждую роль (одноимённый скилл:
+     `/<slug>` сразу надевает эту роль);
    - `secrets/.env.example` (пустой каталог имён + комментарий «значения — только в
      менеджере секретов»), `.gitignore` (`.env`, `*.key`, `secrets/*.local`).
 4. **GitHub**: `gh repo create <owner>/<имя> --private --source . --push`.
