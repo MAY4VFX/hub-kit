@@ -9,7 +9,7 @@
       "name": "hub-kit",
       "source": "./",
       "description": "Hub framework: onboarding wizard (hub-init), project registration, role switching with handoff, cross-repo task routing, session sync to GitHub issues, inbox-to-project kickoff pipeline, and invariant doctor.",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "author": {
         "name": "MAY4VFX"
       },

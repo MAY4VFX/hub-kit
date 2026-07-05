@@ -38,6 +38,25 @@ The onboarding wizard interviews you (one question at a time), creates your **pr
 | `/project-register` | Connect an existing repo (or `--scan` them all) into the system |
 | `/hq-doctor` | Verify & repair the system's invariants (symlinks, registry, labels) |
 
+## Development cycle skills
+
+| Command | What it does |
+|---|---|
+| `/to-issues` | Break a plan into tracer-bullet vertical slices as board-tracked issues |
+| `/triage` | Move issues through a state machine; write agent-ready briefs for AFK work |
+| `/implement` | Take a ready-for-agent issue to a committed, reviewed, work-recorded result |
+| `/research` | Background research against primary sources → cited markdown |
+| `/prototype` | Throwaway prototype that answers one design question (logic or UI) |
+| `/diagnosing-bugs` | Feedback-loop-first discipline for hard bugs |
+| `/grill-me` / grilling | Relentless interview to stress-test a plan |
+| `/handoff` | Pause work: handoff comment in the issue, survives machine switches |
+| `/weekly` | `--plan` / `--retro` weekly rituals (W-labels, board sweep) |
+| `/ship` | Release: notes from commits, tag, push, watch the deploy to "alive" |
+| `/learn` | Turn a session lesson into a rule in the RIGHT context layer |
+| `/writing-great-skills` | Meta: author new skills well |
+
+Skills marked in their footer are vendored or adapted from [mattpocock/skills](https://github.com/mattpocock/skills) and [serejaris/personal-corp-skills](https://github.com/serejaris/personal-corp-skills) (both MIT).
+
 ## How it works
 
 Your hub is a small private repo (created by `/hub-init`):
