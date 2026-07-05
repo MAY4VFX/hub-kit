@@ -46,9 +46,9 @@ ls ~/Github ~/Documents/GitHub 2>/dev/null      # кандидаты в коре
 1. **Локальный штаб**: `<корень>/<имя-штаба>/`, `git init -b main`.
 2. **Файлы из шаблонов** (подставить плейсхолдеры `{{OWNER}}`, `{{HUB_NAME}}`,
    `{{HUB_REPO}}`, `{{HUB_PATH}}`, `{{REPOS_ROOT}}`, `{{ROLES_LIST}}`):
-   - `AGENTS.md` ← `AGENTS.md.tmpl` (`{{PROJECT_NUMBER}}` — заполнится в шаге 4;
-     `{{ROUTING_YAML}}` — по строке `- pattern: "<слова домена>"` + `repo: <hub>` на роль,
-     уточнится при регистрации проектов) + симлинк `ln -s AGENTS.md CLAUDE.md`;
+   - `AGENTS.md` ← `AGENTS.md.tmpl` (`{{PROJECT_NUMBER}}` — заполнится в шаге 4)
+     + симлинк `ln -s AGENTS.md CLAUDE.md`; о проектах здесь НИЧЕГО — только
+     указатель на HQ.md;
    - `HQ.md` ← `HQ.md.tmpl`;
    - `START-HERE.md` ← как есть, с подстановкой;
    - `departments/<slug>.md` ← `_role.md.tmpl` на каждую роль;

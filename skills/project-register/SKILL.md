@@ -40,8 +40,9 @@ disable-model-invocation: true
    `ln -sfn ../<имя-штаба>/departments/<role>.md <repo>/.dept.md`
    Проверь, что резолвится: `test -e <repo>/.dept.md`. Не резолвится (репо не в корне) —
    это ошибка шага 1, не ставь абсолютный путь.
-4. **HQ.md**: добавь строку `| <role> | <owner>/<name> | <path> | <домен одной строкой> |`.
-5. **Routing**: предложи 3–6 ключевых слов для этого репо в `routing:` Hub Config.
+4. **HQ.md**: добавь строку `| <role> | <owner>/<name> | <path> | <домен одной строкой> |
+   <3–6 ключевых слов для routing> |`. Домен — ОДНА строка; подробности живут в самом
+   репо проекта, сюда не дублировать.
 6. **Лейблы в репо проекта**: `epic`, `backlog`, `dept:<role>` (создай отсутствующие).
 7. **Коммиты**: в репо проекта (`chore: register in <hub> [role: <slug>]` — AGENTS.md +
    симлинки CLAUDE.md/.dept.md) и в штабе (`chore: register <name>` — HQ.md + AGENTS.md).

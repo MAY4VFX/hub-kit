@@ -41,20 +41,20 @@
 
 ## Hub Config
 
-Машинно-читаемый конфиг — его читают все скиллы hub-kit. Канонический реестр репо — в
-`HQ.md` (таблица), здесь только скаляры и маршрутизация.
+Машинно-читаемый конфиг — его читают все скиллы hub-kit. Здесь ТОЛЬКО скаляры.
+**Всё о проектах (реестр + routing-слова) — в `HQ.md`**; подробности конкретного
+проекта — в его собственном репо (иди по ссылке из HQ.md и читай там, не дублируй сюда).
 
 ```yaml
 owner: {{OWNER}}
 hub_repo: {{HUB_REPO}}
 hub_path: {{HUB_PATH}}
 repos_root: {{REPOS_ROOT}}
+registry: HQ.md                       # реестр проектов + маршрутизация задач
 project_number: {{PROJECT_NUMBER}}   # единая GitHub Project доска
 status_field: Status
 status_in_progress: In Progress
 week_labels: true                     # W-лейблы недель (WNN)
 role_label_prefix: "dept:"
 authorization: ask-each-time          # или execute-after-plan
-routing:
-{{ROUTING_YAML}}
 ```
