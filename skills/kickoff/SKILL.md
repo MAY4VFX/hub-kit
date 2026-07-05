@@ -3,6 +3,8 @@ name: kickoff
 description: Единая механика старта проекта — inbox-идея (с телефона) или свежая идея (с компа) → grill → новый репо с планом ИЛИ задача в существующий. Use when starting a new project, processing phone-captured ideas, user says "kickoff", "раскрути идею", "разбери inbox", "новый проект".
 disable-model-invocation: true
 ---
+> Взаимодействие с пользователем веди через AskUserQuestion (варианты кнопками, «Другое» = свободный ответ), а не простым текстом — где раннер поддерживает интерактив.
+
 
 # Kickoff — идея → проект
 

@@ -3,6 +3,8 @@ name: to-issues
 description: Разбить план/PRD/идею на независимо-берущиеся issues методом tracer-bullet вертикальных слайсов, с инвариантами хаба (epic, dept-лейбл, доска). Use when breaking a plan into issues, user says "to-issues", "разбей на задачи", "нарежь слайсы".
 disable-model-invocation: true
 ---
+> Взаимодействие с пользователем веди через AskUserQuestion (варианты кнопками, «Другое» = свободный ответ), а не простым текстом — где раннер поддерживает интерактив.
+
 
 # To Issues — план → tracer-bullet слайсы
 

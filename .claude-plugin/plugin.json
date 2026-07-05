@@ -1,7 +1,7 @@
 {
   "name": "hub-kit",
   "description": "Personal hub framework: run all your projects with AI agents through GitHub. Flat polyrepo, role-hats via composable context layers (USD-style), one Project board as agent memory, mobile-to-desktop idea pipeline.",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "author": {
     "name": "MAY4VFX"
   },

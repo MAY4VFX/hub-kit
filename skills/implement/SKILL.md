@@ -3,6 +3,8 @@ name: implement
 description: Взять ready-for-agent issue (или слайс) и довести до коммита - тесты, реализация, ревью, work-record. Use when implementing an issue or slice, user says "implement", "возьми задачу", "сделай слайс", "работай по issue".
 disable-model-invocation: true
 ---
+> Взаимодействие с пользователем веди через AskUserQuestion (варианты кнопками, «Другое» = свободный ответ), а не простым текстом — где раннер поддерживает интерактив.
+
 
 # Implement — слайс до коммита
 

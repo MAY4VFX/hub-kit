@@ -3,6 +3,8 @@ name: project-register
 description: Подключить репозиторий в систему хаба — identity-блок, симлинк роли, строка в HQ.md. Use when connecting an existing repo to the hub, creating a new project repo, user says "project-register", "подключи репо", "зарегистрируй проект", "--scan". Also used by /kickoff with --new to create a project repo.
 disable-model-invocation: true
 ---
+> Взаимодействие с пользователем веди через AskUserQuestion (варианты кнопками, «Другое» = свободный ответ), а не простым текстом — где раннер поддерживает интерактив.
+
 
 # Project Register
 

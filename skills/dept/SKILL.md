@@ -3,6 +3,8 @@ name: dept
 description: Переключить активную роль проекта (variant switcher + handoff открытых задач) или создать новую роль. Use when switching a project's role/department/hat, handing off between roles, user says "dept", "смени роль", "передай в дизайн", "надень шляпу", "/dept --new".
 disable-model-invocation: true
 ---
+> Взаимодействие с пользователем веди через AskUserQuestion (варианты кнопками, «Другое» = свободный ответ), а не простым текстом — где раннер поддерживает интерактив.
+
 
 # Dept — переключение роли проекта
 

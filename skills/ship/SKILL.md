@@ -3,6 +3,8 @@ name: ship
 description: Выпустить релиз - release notes из коммитов, тег, push, контроль деплоя. Use when releasing or deploying a project, user says "ship", "зарелизь", "выкати", "release notes".
 disable-model-invocation: true
 ---
+> Взаимодействие с пользователем веди через AskUserQuestion (варианты кнопками, «Другое» = свободный ответ), а не простым текстом — где раннер поддерживает интерактив.
+
 
 # Ship — релиз проекта
 

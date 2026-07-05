@@ -3,6 +3,8 @@ name: triage
 description: Прогнать issues через стейт-машину триажа — категоризовать, доспецифицировать, пометить ready-for-agent/ready-for-human, написать agent-ready бриф. Use when triaging issues, preparing AFK work, user says "triage", "разбери задачи", "что готово для агента".
 disable-model-invocation: true
 ---
+> Взаимодействие с пользователем веди через AskUserQuestion (варианты кнопками, «Другое» = свободный ответ), а не простым текстом — где раннер поддерживает интерактив.
+
 
 # Triage — стейт-машина задач
 

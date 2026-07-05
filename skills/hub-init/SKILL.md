@@ -3,6 +3,8 @@ name: hub-init
 description: Онбординг-визард hub-kit — создать личный штаб (hub) с ролями, GitHub Project и конфигом. Use when setting up hub-kit for the first time, user says "hub-init", "настрой штаб", "создай хаб", "init hub". Первая команда нового пользователя; идемпотентен — повторный запуск дособирает недостающее.
 disable-model-invocation: true
 ---
+> Взаимодействие с пользователем веди через AskUserQuestion (варианты кнопками, «Другое» = свободный ответ), а не простым текстом — где раннер поддерживает интерактив.
+
 
 # Hub Init — онбординг штаба
 
