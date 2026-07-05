@@ -13,7 +13,7 @@ disable-model-invocation: true
 
 Найди штаб: репо с `## Hub Config` в AGENTS.md (или CLAUDE.md) (обычно `<repos_root>/<owner>-hub`; если
 не находится — спроси путь). Прочитай из Hub Config: `owner`, `hub_repo`, `hub_path`,
-`repos_root`, `role_label_prefix`. Роли — файлы `departments/*.md`. Реестр — `HQ.md`.
+`repos_root`, `role_label_prefix`. Роли — папки `departments/<slug>/` (слой = role.md внутри). Реестр — `HQ.md`.
 
 ## Преflight (read-only, всегда первым)
 
@@ -37,7 +37,7 @@ disable-model-invocation: true
    Существующее содержимое сохрани ниже блока — оно становится local-правилами.
    Уже есть блок (`hub-kit identity block`) — не дублируй.
 3. **Симлинк роли** (относительный!):
-   `ln -sfn ../<имя-штаба>/departments/<role>.md <repo>/.dept.md`
+   `ln -sfn ../<имя-штаба>/departments/<role>/role.md <repo>/.dept.md`
    Проверь, что резолвится: `test -e <repo>/.dept.md`. Не резолвится (репо не в корне) —
    это ошибка шага 1, не ставь абсолютный путь.
 4. **HQ.md**: добавь строку `| <role> | <owner>/<name> | <path> | <домен одной строкой> |

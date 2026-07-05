@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Dept — переключение роли проекта
 
-Роль проекта = симлинк `.dept.md` в его корне → `../<штаб>/departments/<role>.md`.
+Роль проекта = симлинк `.dept.md` в его корне → `../<штаб>/departments/<role>/role.md`.
 Скилл меняет его с полным handoff'ом. Запускается из репо проекта.
 
 ## Конфиг
@@ -21,13 +21,13 @@ disable-model-invocation: true
    (`gh issue list -l dept:<old> -s open`). По каждому, где есть незафиксированная
    работа — work-record-комментарий «передано в <new>: <статус одной строкой>».
    Спроси, какие закрыть.
-3. **Перелинковка**: `ln -sfn ../<штаб-имя>/departments/<new>.md .dept.md` +
+3. **Перелинковка**: `ln -sfn ../<штаб-имя>/departments/<new>/role.md .dept.md` +
    коммит в проект: `chore: dept <old> → <new>`.
 4. **Штаб**: обнови колонку «роль» строки проекта в HQ.md; коммит + push штаба
    (другие машины узнают о смене фазы).
 5. **Задача новой роли**: предложи создать/найти issue `dept:<new>` со ссылкой
    `needs <repo>#<N>` на переданные.
-6. **Подгрузи контекст СЕЙЧАС**: прочитай `departments/<new>.md` целиком — контекст-файлы
+6. **Подгрузи контекст СЕЙЧАС**: прочитай `departments/<new>/role.md` целиком — контекст-файлы
    раннер грузит только на старте сессии, поэтому с этого момента работай по
    правилам новой роли без рестарта.
 
@@ -38,7 +38,7 @@ disable-model-invocation: true
 ## /dept --new <role>
 
 1. Спроси домен роли одной строкой.
-2. Создай `departments/<slug>.md` из `${CLAUDE_PLUGIN_ROOT}/template/departments/_role.md.tmpl`
+2. Создай `departments/<slug>/role.md` из `${CLAUDE_PLUGIN_ROOT}/template/departments/_role.md.tmpl`
    (покажи подходящий пример из `examples/`, если есть).
 3. Лейбл `dept:<slug>` в hub-репо (в репо проектов — добавит project-register/route
    по мере надобности).

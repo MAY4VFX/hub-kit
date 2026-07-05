@@ -51,7 +51,7 @@ ls ~/Github ~/Documents/GitHub 2>/dev/null      # кандидаты в коре
      указатель на HQ.md;
    - `HQ.md` ← `HQ.md.tmpl`;
    - `START-HERE.md` ← как есть, с подстановкой;
-   - `departments/<slug>.md` ← `_role.md.tmpl` на каждую роль;
+   - `departments/<slug>/role.md` ← `_role.md.tmpl` на каждую роль;
    - `secrets/.env.example` (пустой каталог имён + комментарий «значения — только в
      менеджере секретов»), `.gitignore` (`.env`, `*.key`, `secrets/*.local`).
 3. **GitHub**: `gh repo create <owner>/<имя> --private --source . --push`.
