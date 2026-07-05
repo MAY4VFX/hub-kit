@@ -37,6 +37,9 @@ disable-model-invocation: true
 
 ## /dept --new <role>
 
+Структура отдела СТАНДАРТИЗОВАНА — следуй `departments/README.md` штаба (стандарт:
+папка + обязательный role.md, материалы только из белого списка, не заранее).
+
 1. Спроси домен роли одной строкой.
 2. Создай `departments/<slug>/role.md` из `${CLAUDE_PLUGIN_ROOT}/template/departments/_role.md.tmpl`
    (покажи подходящий пример из `examples/`, если есть).
