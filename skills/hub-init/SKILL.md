@@ -44,9 +44,13 @@ ls ~/Github ~/Documents/GitHub 2>/dev/null      # кандидаты в коре
 Покажи сводку (имя, корень, роли+домены, что будет создано) и дождись «да».
 
 1. **Локальный штаб**: `<корень>/<имя-штаба>/`, `git init -b main`.
-2. **Файлы из шаблонов** (подставить плейсхолдеры `{{OWNER}}`, `{{HUB_NAME}}`,
+2. **Скиллы и шаблоны — В ХАБ** (хаб самодостаточен, hub-kit после инициализации не
+   нужен): скопируй из `${CLAUDE_PLUGIN_ROOT}`: `skills/` → `<хаб>/skills/` (все, кроме
+   самого `hub-init`), `template/` → `<хаб>/template/`; создай `<хаб>/.claude-plugin/`
+   с `plugin.json` + `marketplace.json` (name = имя хаба, source "./").
+3. **Файлы из шаблонов** (подставить плейсхолдеры `{{OWNER}}`, `{{HUB_NAME}}`,
    `{{HUB_REPO}}`, `{{HUB_PATH}}`, `{{REPOS_ROOT}}`, `{{ROLES_LIST}}`):
-   - `AGENTS.md` ← `AGENTS.md.tmpl` (`{{PROJECT_NUMBER}}` — заполнится в шаге 4)
+   - `AGENTS.md` ← `AGENTS.md.tmpl` (`{{PROJECT_NUMBER}}` — заполнится в шаге 5)
      + симлинк `ln -s AGENTS.md CLAUDE.md`; о проектах здесь НИЧЕГО — только
      указатель на HQ.md;
    - `HQ.md` ← `HQ.md.tmpl`;
@@ -56,16 +60,20 @@ ls ~/Github ~/Documents/GitHub 2>/dev/null      # кандидаты в коре
      этому стандарту);
    - `secrets/.env.example` (пустой каталог имён + комментарий «значения — только в
      менеджере секретов»), `.gitignore` (`.env`, `*.key`, `secrets/*.local`).
-3. **GitHub**: `gh repo create <owner>/<имя> --private --source . --push`.
-4. **Project-доска**: `gh project create --owner <owner> --title "<имя-штаба>"`;
+4. **GitHub**: `gh repo create <owner>/<имя> --private --source . --push`.
+5. **Project-доска**: `gh project create --owner <owner> --title "<имя-штаба>"`;
    поля: Status есть по умолчанию; добавь `gh project field-create` Deadline (DATE) и
    Week (TEXT). Впиши номер в `project_number` Hub Config. Если у токена нет scope
    `project` — скажи пользователю выполнить `gh auth refresh -s project` и повтори.
-5. **Лейблы в hub-репо**: `epic`, `backlog`, `inbox`, `dept:<slug>` на каждую роль.
-6. **Настройки раннера** (только если раннер — Claude Code): добавь путь штаба в
+6. **Лейблы в hub-репо**: `epic`, `backlog`, `inbox`, `dept:<slug>` на каждую роль.
+7. **Настройки раннера** (только если раннер — Claude Code): добавь путь штаба в
    `permissions.additionalDirectories` глобального `~/.claude/settings.json` (создай
    файл/ключ, если нет; существующее не затирай). Для других раннеров — пропусти.
-7. Коммит + push штаба.
+8. Коммит + push штаба.
+9. **Хаб = твой плагин**: `claude plugin marketplace add <owner>/<имя-штаба>` +
+   `claude plugin install <имя>@<имя>` → все скиллы системы теперь идут из хаба.
+   Предложи удалить плагин hub-kit (`claude plugin uninstall hub-kit@hub-kit`) —
+   он больше не нужен, иначе скиллы задвоятся.
 
 ## Phase 3 — мини-тур (финал, обязательный)
 

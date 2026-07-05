@@ -10,11 +10,19 @@ Personal hub framework: run **all** your projects with AI agents through GitHub.
 
 ## Install
 
-**Claude Code** (2 commands):
+hub-kit is an **initializer**: you install it once, run `/hub-init`, and the wizard
+creates your own private hub repo **with all the skills copied into it**. Your hub is
+then the only plugin you need — it's yours, adapt the skills freely. You can uninstall
+hub-kit afterwards.
+
+**Claude Code**:
 
 ```bash
 claude plugin marketplace add MAY4VFX/hub-kit
 claude plugin install hub-kit@hub-kit
+# in any folder:
+#   /hub-init        ← creates <you>-hub with skills/, roles, board, START-HERE.md
+#   ...then your hub is your plugin; hub-kit can be uninstalled
 ```
 
 **Codex / other runners**: clone the repo and point your runner at it — `.codex-plugin/plugin.json` declares `skills: ./skills/`; each skill is a self-contained `SKILL.md` you can also use as a plain prompt.
