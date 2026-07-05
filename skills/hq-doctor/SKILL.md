@@ -16,7 +16,7 @@ Read-only диагностика → отчёт → починка только 
 | 1 | Репо склонирован в корне | `test -d <repos_root>/<name>/.git` |
 | 2 | Симлинк есть, относительный, резолвится | `readlink .dept.md` + `test -e` |
 | 3 | Симлинк указывает на роль из HQ.md | target == `departments/<role из HQ>.md` |
-| 4 | Identity-блок в CLAUDE.md | grep `hub-kit identity block` |
+| 4 | Identity-блок в AGENTS.md (или CLAUDE.md) | grep `hub-kit identity block` |
 | 5 | Лейблы `dept:<role>`, `epic` существуют | `gh label list -R` |
 | 6 | Открытые issues репо имеют epic-родителя и dept-лейбл | `gh issue list` выборочно |
 | 7 | Активные issues есть на доске | `gh project item-list` |

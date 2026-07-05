@@ -6,13 +6,18 @@ Personal hub framework: run **all** your projects with AI agents through GitHub.
 - **Roles as composable layers** (USD-style) — a "role" (engineering, design, teaching, shop…) is a context layer in your hub, not a folder. Each project points at its active role via a committed symlink; switch the role, and the same repo loads with a different agent identity.
 - **GitHub = memory** — one Project board + issues with work-records are the shared memory across sessions and machines. Nothing lives only in an agent's head.
 - **Mobile → desktop pipeline** — brainstorm an idea on your phone, save it as an `inbox` issue; on desktop `/kickoff` turns it into a repo, a plan, and board-tracked slices.
+- **Agent-agnostic** — the canonical context file is `AGENTS.md` (with a `CLAUDE.md` symlink), so Claude Code, Codex, Cursor and any AGENTS.md-compatible runner see the same system. Skills are plain `SKILL.md` markdown; manifests are provided for Claude Code (`.claude-plugin/`), Codex (`.codex-plugin/`) and generic agent runners (`.agents/`).
 
-## Install (2 commands)
+## Install
+
+**Claude Code** (2 commands):
 
 ```bash
 claude plugin marketplace add MAY4VFX/hub-kit
 claude plugin install hub-kit@hub-kit
 ```
+
+**Codex / other runners**: clone the repo and point your runner at it — `.codex-plugin/plugin.json` declares `skills: ./skills/`; each skill is a self-contained `SKILL.md` you can also use as a plain prompt.
 
 Then, in any folder, run Claude Code and say:
 

@@ -1,0 +1,21 @@
+{
+  "name": "hub-kit",
+  "version": "0.2.0",
+  "description": "Personal hub framework: run all your projects with AI agents through GitHub. Flat polyrepo, role-hats via composable context layers, one Project board as agent memory, mobile-to-desktop idea pipeline.",
+  "author": {
+    "name": "MAY4VFX"
+  },
+  "homepage": "https://github.com/MAY4VFX/hub-kit",
+  "repository": "https://github.com/MAY4VFX/hub-kit",
+  "license": "MIT",
+  "keywords": ["hub", "polyrepo", "ai-agents", "agents-md", "github-projects", "roles", "task-tracking"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Hub Kit",
+    "shortDescription": "Run all your projects with AI agents through GitHub.",
+    "developerName": "MAY4VFX",
+    "category": "Productivity",
+    "capabilities": ["Skills", "Workflow Automation"],
+    "websiteURL": "https://github.com/MAY4VFX/hub-kit"
+  }
+}

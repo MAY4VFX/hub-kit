@@ -9,7 +9,11 @@ disable-model-invocation: true
 Разовая настройка личного штаба. Guided-интервью: **один вопрос за раз**, ничего не
 перезаписывать без спроса, каждый ответ фиксировать сразу.
 
-Шаблоны лежат в этом плагине: `${CLAUDE_PLUGIN_ROOT}/template/`.
+Шаблоны лежат в этом плагине: `${CLAUDE_PLUGIN_ROOT}/template/` (переменная недоступна —
+возьми из клона: `gh repo clone MAY4VFX/hub-kit /tmp/hub-kit` → `/tmp/hub-kit/template/`).
+
+Система agent-agnostic: канонический файл контекста — **AGENTS.md**, `CLAUDE.md` — симлинк
+на него (Claude Code, Codex, Cursor и др. читают одно и то же).
 
 ## Phase 0 — что уже есть
 
@@ -18,7 +22,7 @@ gh auth status && gh api user --jq '.login'    # без gh дальше нель
 ls ~/Github ~/Documents/GitHub 2>/dev/null      # кандидаты в корень
 ```
 
-Если в предполагаемом корне уже есть репо с `## Hub Config` в CLAUDE.md — это существующий
+Если в предполагаемом корне уже есть репо с `## Hub Config` в AGENTS.md (или CLAUDE.md) — это существующий
 штаб: перейди в режим «дособрать недостающее» (пропускай вопросы, на которые уже есть
 ответы в конфиге).
 
@@ -42,9 +46,9 @@ ls ~/Github ~/Documents/GitHub 2>/dev/null      # кандидаты в коре
 1. **Локальный штаб**: `<корень>/<имя-штаба>/`, `git init -b main`.
 2. **Файлы из шаблонов** (подставить плейсхолдеры `{{OWNER}}`, `{{HUB_NAME}}`,
    `{{HUB_REPO}}`, `{{HUB_PATH}}`, `{{REPOS_ROOT}}`, `{{ROLES_LIST}}`):
-   - `CLAUDE.md` ← `CLAUDE.md.tmpl` (`{{PROJECT_NUMBER}}` — заполнится в шаге 4;
+   - `AGENTS.md` ← `AGENTS.md.tmpl` (`{{PROJECT_NUMBER}}` — заполнится в шаге 4;
      `{{ROUTING_YAML}}` — по строке `- pattern: "<слова домена>"` + `repo: <hub>` на роль,
-     уточнится при регистрации проектов);
+     уточнится при регистрации проектов) + симлинк `ln -s AGENTS.md CLAUDE.md`;
    - `HQ.md` ← `HQ.md.tmpl`;
    - `START-HERE.md` ← как есть, с подстановкой;
    - `departments/<slug>.md` ← `_role.md.tmpl` на каждую роль;
@@ -56,9 +60,9 @@ ls ~/Github ~/Documents/GitHub 2>/dev/null      # кандидаты в коре
    Week (TEXT). Впиши номер в `project_number` Hub Config. Если у токена нет scope
    `project` — скажи пользователю выполнить `gh auth refresh -s project` и повтори.
 5. **Лейблы в hub-репо**: `epic`, `backlog`, `inbox`, `dept:<slug>` на каждую роль.
-6. **Настройки Claude Code**: добавь путь штаба в `permissions.additionalDirectories`
-   глобального `~/.claude/settings.json` (создай файл/ключ, если нет; существующее не
-   затирай).
+6. **Настройки раннера** (только если раннер — Claude Code): добавь путь штаба в
+   `permissions.additionalDirectories` глобального `~/.claude/settings.json` (создай
+   файл/ключ, если нет; существующее не затирай). Для других раннеров — пропусти.
 7. Коммит + push штаба.
 
 ## Phase 3 — мини-тур (финал, обязательный)

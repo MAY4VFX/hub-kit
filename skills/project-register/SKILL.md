@@ -11,14 +11,14 @@ disable-model-invocation: true
 
 ## Конфиг
 
-Найди штаб: репо с `## Hub Config` в CLAUDE.md (обычно `<repos_root>/<owner>-hub`; если
+Найди штаб: репо с `## Hub Config` в AGENTS.md (или CLAUDE.md) (обычно `<repos_root>/<owner>-hub`; если
 не находится — спроси путь). Прочитай из Hub Config: `owner`, `hub_repo`, `hub_path`,
 `repos_root`, `role_label_prefix`. Роли — файлы `departments/*.md`. Реестр — `HQ.md`.
 
 ## Преflight (read-only, всегда первым)
 
 Для каждого целевого репо доложи одной строкой:
-`локально: есть/нет · GitHub: есть/нет · в HQ.md: есть/нет · CLAUDE.md: есть/есть с identity/нет · предлагаемая роль: <slug>`
+`локально: есть/нет · GitHub: есть/нет · в HQ.md: есть/нет · AGENTS.md|CLAUDE.md: есть/есть с identity/нет · предлагаемая роль: <slug>`
 
 Роль предложи по содержимому (язык, README, имя), но **спроси подтверждение** — не угадывай молча.
 
@@ -28,10 +28,14 @@ disable-model-invocation: true
    лежит в другом месте → предложи перенести `mv` в корень (сначала проверь, что на
    старый путь не завязаны сервисы: `grep -r <старый-путь> ~/.config/systemd crontab -l`);
    `--new` → `mkdir` + `git init -b main` + README + `gh repo create --private --source . --push`.
-2. **Identity-блок**: вставь `template/project-CLAUDE.md.tmpl` (из
-   `${CLAUDE_PLUGIN_ROOT}/template/`) **В НАЧАЛО** CLAUDE.md проекта, существующее
-   содержимое сохрани ниже — оно становится local-правилами. Уже есть блок
-   (`hub-kit identity block`) — не дублируй.
+2. **Identity-блок**: вставь `template/project-AGENTS.md.tmpl` (из
+   `${CLAUDE_PLUGIN_ROOT}/template/`; переменной нет — клон hub-kit) **В НАЧАЛО**
+   канонического файла проекта. Канонизация agent-agnostic:
+   - есть только `CLAUDE.md` (не симлинк) → `git mv CLAUDE.md AGENTS.md`;
+   - нет ни одного → создай `AGENTS.md` из шаблона;
+   - затем симлинк-двойник: `ln -sfn AGENTS.md CLAUDE.md`.
+   Существующее содержимое сохрани ниже блока — оно становится local-правилами.
+   Уже есть блок (`hub-kit identity block`) — не дублируй.
 3. **Симлинк роли** (относительный!):
    `ln -sfn ../<имя-штаба>/departments/<role>.md <repo>/.dept.md`
    Проверь, что резолвится: `test -e <repo>/.dept.md`. Не резолвится (репо не в корне) —
@@ -39,9 +43,9 @@ disable-model-invocation: true
 4. **HQ.md**: добавь строку `| <role> | <owner>/<name> | <path> | <домен одной строкой> |`.
 5. **Routing**: предложи 3–6 ключевых слов для этого репо в `routing:` Hub Config.
 6. **Лейблы в репо проекта**: `epic`, `backlog`, `dept:<role>` (создай отсутствующие).
-7. **Коммиты**: в репо проекта (`chore: register in <hub> [role: <slug>]` — CLAUDE.md +
-   .dept.md) и в штабе (`chore: register <name>` — HQ.md + CLAUDE.md). Пушь штаб; пуш
-   проекта — спроси, если у него настроен авто-деплой с ветки.
+7. **Коммиты**: в репо проекта (`chore: register in <hub> [role: <slug>]` — AGENTS.md +
+   симлинки CLAUDE.md/.dept.md) и в штабе (`chore: register <name>` — HQ.md + AGENTS.md).
+   Пушь штаб; пуш проекта — спроси, если у него настроен авто-деплой с ветки.
 
 ## --scan
 
@@ -53,7 +57,7 @@ disable-model-invocation: true
 
 | Собираешься… | Вместо этого… |
 |---|---|
-| Затереть существующий CLAUDE.md проекта | Identity-блок СВЕРХУ, остальное сохранить |
+| Затереть существующий CLAUDE.md/AGENTS.md проекта | Identity-блок СВЕРХУ, остальное сохранить |
 | Поставить абсолютный симлинк | Перенести репо в корень, симлинк относительный |
 | Угадать роль молча | Предложить и спросить |
 | Push в репо с авто-деплоем | Спросить (push = redeploy) |

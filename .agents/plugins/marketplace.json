@@ -1,0 +1,20 @@
+{
+  "name": "hub-kit",
+  "interface": {
+    "displayName": "Hub Kit"
+  },
+  "plugins": [
+    {
+      "name": "hub-kit",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
