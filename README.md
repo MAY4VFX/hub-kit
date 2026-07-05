@@ -1,0 +1,52 @@
+# hub-kit
+
+Personal hub framework: run **all** your projects with AI agents through GitHub.
+
+- **Flat polyrepo** — every project is a sibling repo under one root (`~/Github`). No nesting, no submodules.
+- **Roles as composable layers** (USD-style) — a "role" (engineering, design, teaching, shop…) is a context layer in your hub, not a folder. Each project points at its active role via a committed symlink; switch the role, and the same repo loads with a different agent identity.
+- **GitHub = memory** — one Project board + issues with work-records are the shared memory across sessions and machines. Nothing lives only in an agent's head.
+- **Mobile → desktop pipeline** — brainstorm an idea on your phone, save it as an `inbox` issue; on desktop `/kickoff` turns it into a repo, a plan, and board-tracked slices.
+
+## Install (2 commands)
+
+```bash
+claude plugin marketplace add MAY4VFX/hub-kit
+claude plugin install hub-kit@hub-kit
+```
+
+Then, in any folder, run Claude Code and say:
+
+```
+/hub-init
+```
+
+The onboarding wizard interviews you (one question at a time), creates your **private hub repo** with your own roles, sets up the GitHub Project board and labels, and leaves a `START-HERE.md` guide in your hub explaining how to live with the system.
+
+## Daily commands
+
+| Command | What it does |
+|---|---|
+| `/kickoff` | Turn an idea (from your phone's inbox or typed right now) into a project: repo + plan + board slices |
+| `/route` | File a task/idea into the right repo with the right labels — never the wrong backlog |
+| `/dept` | Switch the active role of a project (with proper handoff of open issues) |
+| `/sync` | End of session: write work-records into issues, update the board, push the hub |
+| `/project-register` | Connect an existing repo (or `--scan` them all) into the system |
+| `/hq-doctor` | Verify & repair the system's invariants (symlinks, registry, labels) |
+
+## How it works
+
+Your hub is a small private repo (created by `/hub-init`):
+
+```
+<you>-hub/
+├── CLAUDE.md          # agent identity + rituals + ## Hub Config (machine-readable)
+├── HQ.md              # registry: | role | repo | local path | domain |
+├── START-HERE.md      # your personalized guide
+└── departments/       # one .md per role — the "hats" agents wear
+```
+
+Each registered project carries two tiny things: an identity block in its `CLAUDE.md` and a committed relative symlink `.dept.md → ../<you>-hub/departments/<role>.md`. When an agent starts in the project, it composes: project context + active role rules + hub rituals. `git log .dept.md` is literally the project's migration history between roles.
+
+## License
+
+MIT

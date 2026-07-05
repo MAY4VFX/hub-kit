@@ -1,0 +1,19 @@
+{
+  "name": "hub-kit",
+  "description": "Personal hub framework for running all your projects with AI agents through GitHub.",
+  "owner": {
+    "name": "MAY4VFX"
+  },
+  "plugins": [
+    {
+      "name": "hub-kit",
+      "source": "./",
+      "description": "Hub framework: onboarding wizard (hub-init), project registration, role switching with handoff, cross-repo task routing, session sync to GitHub issues, inbox-to-project kickoff pipeline, and invariant doctor.",
+      "version": "0.1.0",
+      "author": {
+        "name": "MAY4VFX"
+      },
+      "category": "productivity"
+    }
+  ]
+}
