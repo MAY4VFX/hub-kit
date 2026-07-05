@@ -57,6 +57,7 @@ ls ~/Github ~/Documents/GitHub 2>/dev/null      # кандидаты в коре
      указатель на HQ.md;
    - `HQ.md` ← `HQ.md.tmpl`;
    - `START-HERE.md` ← как есть, с подстановкой;
+   - `HELP.md` ← `template/HELP.md` (шпаргалка «этап → скилл»);
    - `departments/README.md` ← стандарт отдела (копия из template/departments/README.md);
    - `departments/<slug>/role.md` ← `_role.md.tmpl` на каждую роль (структура — по
      этому стандарту);
